@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+namespace App;
+
+use App\SorterInit;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$string_arr = ['Poltava', 'Kyiv', 'Kharkov', 'Odessa', 'lvov'];
+
+$number_arr = [2, 7, 22, 53, 76, 85, 71, 2046];
+
+/**
+ * Example Numeric sorter
+ */
+echo "String sorter".PHP_EOL;
+$string_sorter = new \App\SorterInit(new StringSorter());
+var_dump($string_sorter->sortIncreaseInit($string_arr));
+var_dump($string_sorter->sortDecreaseInit($string_arr));
+echo PHP_EOL;
+
+echo "Numeric sorter".PHP_EOL;
+$number_sorter = new \App\SorterInit(new NumericSorter());
+var_dump($number_sorter->sortIncreaseInit($number_arr));
+var_dump($number_sorter->sortDecreaseInit($number_arr));
+echo PHP_EOL;
+
+echo "No sorter".PHP_EOL;
+$no_sorter = new \App\SorterInit(new NoSorter());
+var_dump($no_sorter->sortIncreaseInit($string_arr));
+var_dump($no_sorter->sortDecreaseInit($number_arr));
+echo PHP_EOL;
+
+
