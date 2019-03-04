@@ -9,16 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace App;
+namespace Lk\Sorter;
 
 class NoSorter implements SorterInterface
 {
-    public function sortIncrease($a): array
-    {
-        return $a;
-    }
-
-    public function sortDecrease($a): array
+    public function sort(array $a, string $flag): array
     {
         return $a;
     }

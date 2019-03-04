@@ -1,34 +1,37 @@
 #!/usr/bin/env php
 <?php
-namespace App;
+namespace Lk\Sorter;
 
-use App\SorterInit;
+use Lk\Sorter\SorterInit;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$string_arr = ['Poltava', 'Kyiv', 'Kharkov', 'Odessa', 'lvov'];
+$string_arr = ['Poltava', 'Kyiv', 'Kharkov', 'Odessa', 'Lvov'];
 
 $number_arr = [2, 7, 22, 53, 76, 85, 71, 2046];
+
+const ARR_TYPE_STRING = 'string';
+const ARR_TYPE_NUMERIC = 'number';
 
 /**
  * Example Numeric sorter
  */
-echo "String sorter".PHP_EOL;
-$string_sorter = new \App\SorterInit(new StringSorter());
-var_dump($string_sorter->sortIncreaseInit($string_arr));
-var_dump($string_sorter->sortDecreaseInit($string_arr));
+echo "Increase sorter".PHP_EOL;
+$string_sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter());
+var_dump($string_sorter->sortInit($string_arr, ARR_TYPE_STRING));
+var_dump($string_sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
 echo PHP_EOL;
 
-echo "Numeric sorter".PHP_EOL;
-$number_sorter = new \App\SorterInit(new NumericSorter());
-var_dump($number_sorter->sortIncreaseInit($number_arr));
-var_dump($number_sorter->sortDecreaseInit($number_arr));
+echo "Decrease sorter".PHP_EOL;
+$number_sorter = new \Lk\Sorter\SorterInit(new DecreaseSorter());
+var_dump($number_sorter->sortInit($string_arr, ARR_TYPE_STRING));
+var_dump($number_sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
 echo PHP_EOL;
 
 echo "No sorter".PHP_EOL;
-$no_sorter = new \App\SorterInit(new NoSorter());
-var_dump($no_sorter->sortIncreaseInit($string_arr));
-var_dump($no_sorter->sortDecreaseInit($number_arr));
+$no_sorter = new \Lk\Sorter\SorterInit(new NoSorter());
+var_dump($no_sorter->sortInit($string_arr, ARR_TYPE_STRING));
+var_dump($no_sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
 echo PHP_EOL;
 
 

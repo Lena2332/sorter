@@ -9,24 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace App;
+namespace Lk\Sorter;
 
 class SorterInit
 {
     private $engine;
 
-    public function __construct(SorterInterface $sorter)
+    public function __construct(SorterInterface $sorter, string $array_type = null)
     {
         $this->engine = $sorter;
     }
 
-    public function sortDecreaseInit(array $arr): array
+    public function sortInit(array $arr, string $flag): array
     {
-        return $this->engine->sortDecrease($arr);
-    }
-
-    public function sortIncreaseInit(array $arr): array
-    {
-        return $this->engine->sortIncrease($arr);
+        return $this->engine->sort($arr, $flag);
     }
 }
