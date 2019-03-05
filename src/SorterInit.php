@@ -19,10 +19,14 @@ class SorterInit
     {
         $this->engine = $sorter;
     }
-
     
     public function sortInit(array $array, string $flag): array
     {
         return $this->engine->sort($array, $flag);
+    }
+
+    public function setSorter(SorterInterface $sorter)
+    {
+        $this->engine = $sorter;
     }
 }
