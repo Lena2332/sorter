@@ -19,19 +19,23 @@ namespace Lk\Sorter;
  */
 class DecreaseSorter implements SorterInterface
 {
-    public function sort(array $a, string $flag): array
+    const STRING_FLAG = \SORT_STRING;
+    const NUMBER_FLAG = \SORT_NUMERIC;
+    const REGULAR_FLAG = \SORT_REGULAR;
+
+    public function sort(array $array, string $flag): array
     {
         switch ($flag) {
             case 'string':
-                \arsort($a, \SORT_STRING);
+                \arsort($array, self::STRING_FLAG);
                 break;
             case 'number':
-                \arsort($a, \SORT_NUMERIC);
+                \arsort($array, self::NUMBER_FLAG);
                 break;
             default:
-                \arsort($a, \SORT_REGULAR);
+                \arsort($array, self::REGULAR_FLAG);
         }
 
-        return $a;
+        return $array;
     }
 }

@@ -13,8 +13,8 @@ namespace Lk\Sorter;
 
 class NoSorter implements SorterInterface
 {
-    public function sort(array $a, string $flag): array
+    public function sort(array $array, string $flag): array
     {
-        return $a;
+        return $array;
     }
 }

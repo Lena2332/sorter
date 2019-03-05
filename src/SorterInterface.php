@@ -14,10 +14,10 @@ namespace Lk\Sorter;
 interface SorterInterface
 {
     /**
-     * @param array $a
-     * @param string $b flag switchs sorter for numeric or string
+     * @param array $array
+     * @param string $flag flag switchs sorter for numeric or string
      *
-     * @return sorted array $a
+     * @return sorted array $array
      */
-    public function sort(array $a, string $b): array;
+    public function sort(array $array, string $flag): array;
 }

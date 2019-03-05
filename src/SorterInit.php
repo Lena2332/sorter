@@ -15,13 +15,14 @@ class SorterInit
 {
     private $engine;
 
-    public function __construct(SorterInterface $sorter, string $array_type = null)
+    public function __construct(SorterInterface $sorter)
     {
         $this->engine = $sorter;
     }
 
-    public function sortInit(array $arr, string $flag): array
+    
+    public function sortInit(array $array, string $flag): array
     {
-        return $this->engine->sort($arr, $flag);
+        return $this->engine->sort($array, $flag);
     }
 }
