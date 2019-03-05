@@ -14,19 +14,34 @@ namespace Lk\Sorter;
 class SorterInit
 {
     private $engine;
+    private $flag;
 
-    public function __construct(SorterInterface $sorter)
+    public function __construct(SorterInterface $sorter, string $flag)
     {
         $this->engine = $sorter;
+        $this->flag = $flag;
     }
     
-    public function sortInit(array $array, string $flag): array
+    public function sortInit(array $array): array
     {
-        return $this->engine->sort($array, $flag);
+        return $this->engine->sort($array, $this->flag);
     }
 
+    /**
+     * @param SorterInterface $sorter
+     * Set for choose type of sorter
+     */
     public function setSorter(SorterInterface $sorter)
     {
         $this->engine = $sorter;
+    }
+
+    /**
+     * @param string $flag
+     * Set flag for choose string or number array you want sort
+     */
+    public function setFlag(string $flag)
+    {
+        $this->flag = $flag;
     }
 }

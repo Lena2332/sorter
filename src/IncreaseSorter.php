@@ -19,7 +19,6 @@ namespace Lk\Sorter;
  */
 class IncreaseSorter implements SorterInterface
 {
-
     public function sort(array $a, string $flag): array
     {
         switch ($flag) {

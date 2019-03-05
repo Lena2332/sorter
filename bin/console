@@ -14,24 +14,27 @@ const ARR_TYPE_STRING = 'string';
 const ARR_TYPE_NUMERIC = 'number';
 
 /**
- * Example Numeric sorter
+ * Example sorter
  */
 echo "Increase sorter".PHP_EOL;
-$sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter());
-var_dump($sorter->sortInit($string_arr, ARR_TYPE_STRING));
-var_dump($sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
+$sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter(), ARR_TYPE_STRING);
+var_dump($sorter->sortInit($string_arr));
+$sorter->setFlag(ARR_TYPE_NUMERIC);
+var_dump($sorter->sortInit($number_arr));
 echo PHP_EOL;
 
 echo "Decrease sorter".PHP_EOL;
 $sorter->setSorter(new DecreaseSorter());
-var_dump($sorter->sortInit($string_arr, ARR_TYPE_STRING));
-var_dump($sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
+$sorter->setFlag(ARR_TYPE_STRING);
+var_dump($sorter->sortInit($string_arr));
+$sorter->setFlag(ARR_TYPE_NUMERIC);
+var_dump($sorter->sortInit($number_arr));
 echo PHP_EOL;
 
 echo "No sorter".PHP_EOL;
 $sorter->setSorter(new NoSorter());
-var_dump($sorter->sortInit($string_arr, ARR_TYPE_STRING));
-var_dump($sorter->sortInit($number_arr, ARR_TYPE_NUMERIC));
+var_dump($sorter->sortInit($string_arr));
+var_dump($sorter->sortInit($number_arr));
 echo PHP_EOL;
 
 

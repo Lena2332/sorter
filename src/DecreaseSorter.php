@@ -19,8 +19,6 @@ namespace Lk\Sorter;
  */
 class DecreaseSorter implements SorterInterface
 {
-
-
     public function sort(array $array, string $flag): array
     {
         switch ($flag) {
