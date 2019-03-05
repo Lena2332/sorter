@@ -16,7 +16,7 @@ class SorterInit
     private $engine;
     private $flag;
 
-    public function __construct(SorterInterface $sorter, string $flag)
+    public function __construct(SorterInterface $sorter, string $flag = null)
     {
         $this->engine = $sorter;
         $this->flag = $flag;

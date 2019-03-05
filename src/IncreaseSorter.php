@@ -19,19 +19,19 @@ namespace Lk\Sorter;
  */
 class IncreaseSorter implements SorterInterface
 {
-    public function sort(array $a, string $flag): array
+    public function sort(array $array, string $flag = null): array
     {
         switch ($flag) {
             case 'string':
-                \asort($a, \SORT_STRING);
+                \asort($array, \SORT_STRING);
                 break;
             case 'number':
-                \asort($a, \SORT_NUMERIC);
+                \asort($array, \SORT_NUMERIC);
                 break;
             default:
-                \asort($a, \SORT_REGULAR);
+                \asort($array, \SORT_REGULAR);
         }
 
-        return $a;
+        return $array;
     }
 }

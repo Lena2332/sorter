@@ -19,7 +19,7 @@ namespace Lk\Sorter;
  */
 class DecreaseSorter implements SorterInterface
 {
-    public function sort(array $array, string $flag): array
+    public function sort(array $array, string $flag = null): array
     {
         switch ($flag) {
             case 'string':

@@ -20,13 +20,22 @@ Usage
 If you want sort your array increase, use following code:
 
 ```
-$string_sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter());
+//Regular sorter
+$sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter());
 
-// Used for sort array as string array
-$string_sorter->sortInit($string_arr, 'string');
+//You can add flag for string array or number array
+$sorter = new \Lk\Sorter\SorterInit(new IncreaseSorter(), 'string');
 
-//Used for number array
-$string_sorter->sortInit($number_arr, 'number');
+//You can change flag 'string' for string array or 'number' for number array
+$sorter->setFlag('string');
+
+// Initialisation array
+$sorter->sortInit($array);
+
+//For change sorter use 
+$sorter->setSorter(new DecreaseSorter());
+
+
 
 ```
 
